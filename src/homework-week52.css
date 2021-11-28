@@ -1,0 +1,119 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 246, 236) 39.5%,
+    rgba(100, 46, 122, 0.23) 100.2%
+  );
+}
+
+h1,
+h2,
+h3,
+li,
+div {
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 40px 0 0 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+ul {
+  margin: 20px 0 70px 0;
+  padding: 0;
+}
+
+li {
+  font-size: 12px;
+  list-style: none;
+}
+
+input {
+  border-radius: 40px;
+  margin: 30px 0px;
+  padding: 0 0 0 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card {
+  border-radius: 20px;
+  border-color: #e7dbe4;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.search {
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+.current-date {
+  font-size: 14px;
+  text-align: center;
+}
+
+.icon-today {
+  display: block;
+  margin: 30px auto;
+  width: 80px;
+}
+
+.weather-icons {
+  width: 40px;
+}
+
+.row {
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.day-temperature {
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.current-day-temperature {
+  font-size: 30px;
+}
+
+.celsius {
+  font-size: 30px;
+  color: black;
+}
+
+.fahrenheit {
+  font-size: 18px;
+  color: #64c4ed;
+}
+
+.search-buttons {
+  border-style: none;
+  margin: 30px 0px;
+  padding: 0 0 0 10px;
+  background: none;
+}
