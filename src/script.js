@@ -25,6 +25,25 @@ let day = days[now.getDay()];
 
 currentDay.innerHTML = `${day} ${hours}:${minutes}`;
 
+//Celcius & Fahrenheit
+function showFahrenheit(event) {
+  event.preventDefault();
+  let currentFahrenheit = document.querySelector("#current-day-temperature");
+  currentFahrenheit.innerHTML = 66;
+}
+
+let fahrenheit = document.querySelector(".fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+function showCelsius(event) {
+  event.preventDefault();
+  let currentCelsius = document.querySelector("#current-day-temperature");
+  currentCelsius.innerHTML = 17;
+}
+
+let celsius = document.querySelector(".celsius");
+celsius.addEventListener("click", showCelsius);
+
 //Weather
 function showWeatherCondition(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
