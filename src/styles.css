@@ -104,19 +104,23 @@ a {
 }
 
 .celsius {
-  font-size: 30px;
+  position: relative;
+  font-size: 16px;
   color: black;
+  top: -8px;
 }
 
 .fahrenheit {
-  font-size: 18px;
+  position: relative;
+  font-size: 16px;
   color: #64c4ed;
+  top: -8px;
 }
 
 .search-buttons {
   border-style: none;
   margin: 30px 0px;
-  padding: 0 0 0 10px;
+  padding: 0;
   background: none;
 }
 
