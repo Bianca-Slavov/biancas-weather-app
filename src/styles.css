@@ -32,6 +32,10 @@ h3 {
   font-size: 17px;
 }
 
+h3:first-letter {
+  text-transform: capitalize;
+}
+
 img {
   display: block;
   margin: 0 auto;
@@ -138,8 +142,4 @@ a {
 .fa-search {
   color: #a489b2;
   font-size: 15px;
-}
-
-.weather-description {
-  text-transform: capitalize;
 }
