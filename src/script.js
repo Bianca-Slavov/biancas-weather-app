@@ -40,9 +40,7 @@ function showWeatherCondition(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#windspeed");
   let dateElement = document.querySelector("#currentDay");
-  let iconElement = (document.querySelector(
-    "#icon"
-  ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
 
@@ -58,25 +56,6 @@ function showWeatherCondition(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-
-//Celcius & Fahrenheit
-function showFahrenheit(event) {
-  event.preventDefault();
-  let currentFahrenheit = document.querySelector("#current-day-temperature");
-  currentFahrenheit.innerHTML = 66;
-}
-
-let fahrenheit = document.querySelector(".fahrenheit");
-fahrenheit.addEventListener("click", showFahrenheit);
-
-function showCelsius(event) {
-  event.preventDefault();
-  let currentCelsius = document.querySelector("#current-day-temperature");
-  currentCelsius.innerHTML = 17;
-}
-
-let celsius = document.querySelector(".celsius");
-celsius.addEventListener("click", showCelsius);
 
 //City search
 function searchCity(city) {
@@ -112,3 +91,22 @@ function getCurrentLocation(event) {
 
 let currentLocationButton = document.querySelector("#city-position");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+//Celcius & Fahrenheit
+function showFahrenheit(event) {
+  event.preventDefault();
+  let currentFahrenheit = document.querySelector("#current-day-temperature");
+  currentFahrenheit.innerHTML = 66;
+}
+
+let fahrenheit = document.querySelector(".fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheit);
+
+function showCelsius(event) {
+  event.preventDefault();
+  let currentCelsius = document.querySelector("#current-day-temperature");
+  currentCelsius.innerHTML = 17;
+}
+
+let celsius = document.querySelector(".celsius");
+celsius.addEventListener("click", showCelsius);
