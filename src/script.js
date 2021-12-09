@@ -39,7 +39,10 @@ function showWeatherCondition(response) {
   let descriptionElement = document.querySelector("#weather-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#windspeed");
-  let dateElement = document.querySelector("#date");
+  let dateElement = document.querySelector("#currentDay");
+  let iconElement = (document.querySelector(
+    "#icon"
+  ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
   celsiusTemperature = response.data.main.temp;
 
@@ -49,6 +52,11 @@ function showWeatherCondition(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 //Celcius & Fahrenheit
