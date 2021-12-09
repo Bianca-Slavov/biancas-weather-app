@@ -1,29 +1,55 @@
 //Date
-let now = new Date();
 
-let currentDay = document.querySelector("#currentDay");
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
 
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
+//Weather
+function showWeatherCondition(response) {
+  let temperatureElement = document.querySelector("#current-day-temperature");
+  let cityElement = document.querySelector("#current-city");
+  let descriptionElement = document.querySelector("#weather-description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#windspeed");
+  let dateElement = document.querySelector("#date");
 
-currentDay.innerHTML = `${day} ${hours}:${minutes}`;
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+}
 
 //Celcius & Fahrenheit
 function showFahrenheit(event) {
@@ -44,23 +70,7 @@ function showCelsius(event) {
 let celsius = document.querySelector(".celsius");
 celsius.addEventListener("click", showCelsius);
 
-//Weather
-function showWeatherCondition(response) {
-  document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#current-day-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-
-  document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector("#humidity").innerHTML = Math.round(
-    response.data.main.humidity
-  );
-  document.querySelector("#windspeed").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-}
-
+//City search
 function searchCity(city) {
   let apiKey = "bad8df618c99f7689be26e10f430a853";
   let units = "metric";

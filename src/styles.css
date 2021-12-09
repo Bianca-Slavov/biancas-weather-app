@@ -139,3 +139,7 @@ a {
   color: #a489b2;
   font-size: 15px;
 }
+
+.weather-description {
+  text-transform: capitalize;
+}
