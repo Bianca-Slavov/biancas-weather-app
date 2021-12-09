@@ -88,8 +88,8 @@ function searchCity(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#search-city").value;
-  searchCity(city);
+  let cityInputElement = document.querySelector("#search-city");
+  searchCity(cityInputElement.value);
 }
 
 function searchLocation(position) {
@@ -99,16 +99,16 @@ function searchLocation(position) {
   axios.get(apiUrl).then(showWeatherCondition);
 }
 
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+searchCity("Amsterdam");
+
 //GEO
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
 let currentLocationButton = document.querySelector("#city-position");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-searchCity("Amsterdam");
