@@ -52,7 +52,7 @@ function showWeatherCondition(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `images/gif/${response.data.weather[0].icon}.gif`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
