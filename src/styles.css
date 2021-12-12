@@ -9,7 +9,6 @@ body {
 }
 
 h1,
-h2,
 h3,
 li,
 div {
@@ -21,11 +20,6 @@ h1 {
   font-weight: bold;
   margin: 40px 0 0 0;
   text-transform: uppercase;
-}
-
-h2 {
-  font-weight: bold;
-  margin-top: 10px;
 }
 
 h3 {
@@ -59,6 +53,10 @@ input {
 
 a {
   text-decoration: none;
+}
+
+strong {
+  font-size: 30px;
 }
 
 .card {
@@ -103,22 +101,25 @@ a {
   text-align: center;
 }
 
-.current-day-temperature {
-  font-size: 30px;
+.weather-temperature {
+  margin: 10px 0px;
 }
 
-.celsius {
-  position: relative;
-  font-size: 16px;
+.weather-temperature .units {
   color: black;
-  top: -8px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  top: -10px;
 }
 
-.fahrenheit {
-  position: relative;
-  font-size: 16px;
-  color: #64c4ed;
-  top: -8px;
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
 }
 
 .search-buttons {

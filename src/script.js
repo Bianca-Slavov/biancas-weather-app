@@ -78,11 +78,6 @@ function searchLocation(position) {
   axios.get(apiUrl).then(showWeatherCondition);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
-searchCity("Amsterdam");
-
 //GEO
 function getCurrentLocation(event) {
   event.preventDefault();
@@ -92,21 +87,32 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#city-position");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-//Celcius & Fahrenheit
-function showFahrenheit(event) {
+function showFahrenheitTemperature(event) {
   event.preventDefault();
-  let currentFahrenheit = document.querySelector("#current-day-temperature");
-  currentFahrenheit.innerHTML = 66;
+  let temperatureElement = document.querySelector("#current-day-temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrentheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrentheitTemperature);
 }
 
-let fahrenheit = document.querySelector(".fahrenheit");
-fahrenheit.addEventListener("click", showFahrenheit);
-
-function showCelsius(event) {
+function showCelsiusTemperature(event) {
   event.preventDefault();
-  let currentCelsius = document.querySelector("#current-day-temperature");
-  currentCelsius.innerHTML = 17;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-day-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celsius = document.querySelector(".celsius");
-celsius.addEventListener("click", showCelsius);
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+searchCity("Amsterdam");
