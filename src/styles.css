@@ -118,15 +118,6 @@ strong {
   top: -10px;
 }
 
-.weather-temperature .active {
-  color: black;
-  cursor: default;
-}
-
-.weather-temperature .active:hover {
-  text-decoration: none;
-}
-
 .row {
   color: #212529;
   margin-bottom: 30px;
