@@ -33,7 +33,8 @@ function formatDay(timestamp) {
 }
 
 //Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["MON", "TUE", "WED", "THU", "FRI"];
@@ -64,6 +65,13 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "bad8df618c99f7689be26e10f430a853";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //Weather
 function showWeatherCondition(response) {
   let temperatureElement = document.querySelector("#current-day-temperature");
@@ -87,6 +95,8 @@ function showWeatherCondition(response) {
     `images/gif/${response.data.weather[0].icon}.gif`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 //City search
@@ -150,4 +160,3 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 searchCity("Amsterdam");
-displayForecast();
