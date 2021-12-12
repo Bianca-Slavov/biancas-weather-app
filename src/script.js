@@ -101,6 +101,8 @@ function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#search-city");
   searchCity(cityInputElement.value);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function searchLocation(position) {
