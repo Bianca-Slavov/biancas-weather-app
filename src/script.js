@@ -32,6 +32,38 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["MON", "TUE", "WED", "THU", "FRI"];
+
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img
+        class="weather-icons"
+        src="images/png/weather-images5.png"
+        width="50px"
+        alt="weather-icon"
+      />
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-max">12 °C </span>
+        <span class="weather-forecast-temperature-min"> / 8 °C </span>
+      </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Weather
 function showWeatherCondition(response) {
   let temperatureElement = document.querySelector("#current-day-temperature");
@@ -116,3 +148,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 searchCity("Amsterdam");
+displayForecast();

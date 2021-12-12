@@ -106,12 +106,6 @@ strong {
   text-align: center;
 }
 
-.day-temperature {
-  font-size: 14px;
-  margin: 10px 0;
-  text-align: center;
-}
-
 .weather-temperature {
   margin: 10px 0px;
 }
@@ -133,13 +127,29 @@ strong {
   text-decoration: none;
 }
 
-.weather-icons {
-  width: 40px;
-}
-
 .row {
+  color: #212529;
   margin-bottom: 30px;
   justify-content: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.weather-forecast-temperatures {
+  font-size: 12px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
+}
+
+.weather-icons {
+  width: 40px;
 }
 
 .coded-by {
